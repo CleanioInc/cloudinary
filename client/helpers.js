@@ -2,6 +2,8 @@ if (Package.ui) {
 	Package.ui.Handlebars.registerHelper('c_url', function (public_id,options) {
 		if(public_id){
 			return $.cloudinary.url(public_id,options.hash);
+		} else {
+			return '/images/defaultprofilpic.svg';
 		}
 	});
 	Package.ui.Handlebars.registerHelper('c_upload_successful', function() {
