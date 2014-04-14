@@ -20,7 +20,7 @@ Template.cloudinary_upload.events({
 					if(!e && r && !_.has(r,"error")){
 						Session.set("cloudinary_upload.upload_successful",r);
 						Session.set("cloudinary_upload.upload_failed",false);
-						humane.log('Photo ajouter successfuly');
+						humane.log('Photo ajoutée avec succès');
 						Session.set('loadingUpload', false);
 						Session.set('isUpload', false);
 					} else if (!e && r && _.has(r,"error")){
