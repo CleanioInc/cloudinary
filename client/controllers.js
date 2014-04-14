@@ -1,5 +1,6 @@
 Template.cloudinary_upload.events({
 	'change input[type=file]': function (e,helper) {
+		Session.set('loadingUpload', true);
 		var options = {context:this};
 
 		if(helper.data && _.has(helper.data,"callback")){
@@ -19,12 +20,21 @@ Template.cloudinary_upload.events({
 					if(!e && r && !_.has(r,"error")){
 						Session.set("cloudinary_upload.upload_successful",r);
 						Session.set("cloudinary_upload.upload_failed",false);
+						humane.log('Photo ajouter successfuly');
+						Session.set('loadingUpload', false);
+						Session.set('isUpload', false);
 					} else if (!e && r && _.has(r,"error")){
 						Session.set("cloudinary_upload.upload_successful",false);
 						Session.set("cloudinary_upload.upload_failed",r);
+						Session.set('loadingUpload', false);
+						humane.log('Somthing wrong =/');
+						Session.set('isUpload', true);
 					} else {
 						Session.set("cloudinary_upload.upload_successful",false);
 						Session.set("cloudinary_upload.upload_failed",e);
+						Session.set('loadingUpload', false);
+						humane.log('Somthing wrong =/');
+						Session.set('isUpload', true);
 					}
 				});
 			};
