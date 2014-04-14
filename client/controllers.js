@@ -27,13 +27,13 @@ Template.cloudinary_upload.events({
 						Session.set("cloudinary_upload.upload_successful",false);
 						Session.set("cloudinary_upload.upload_failed",r);
 						Session.set('loadingUpload', false);
-						humane.log('Somthing wrong =/');
+						humane.log('Un problème est survenu');
 						Session.set('isUpload', true);
 					} else {
 						Session.set("cloudinary_upload.upload_successful",false);
 						Session.set("cloudinary_upload.upload_failed",e);
 						Session.set('loadingUpload', false);
-						humane.log('Somthing wrong =/');
+						humane.log('Un problème est survenu');
 						Session.set('isUpload', true);
 					}
 				});
