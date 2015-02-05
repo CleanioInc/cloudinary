@@ -20,20 +20,20 @@ Template.cloudinary_upload.events({
 					if(!e && r && !_.has(r,"error")){
 						Session.set("cloudinary_upload.upload_successful",r);
 						Session.set("cloudinary_upload.upload_failed",false);
-						humane.log('Photo ajoutée avec succès');
+						toastr.success('Photo ajoutée avec succès');
 						Session.set('loadingUpload', false);
 						Session.set('isUpload', false);
 					} else if (!e && r && _.has(r,"error")){
 						Session.set("cloudinary_upload.upload_successful",false);
 						Session.set("cloudinary_upload.upload_failed",r);
 						Session.set('loadingUpload', false);
-						humane.log('Un problème est survenu');
+						toastr.error('Un problème est survenu');
 						Session.set('isUpload', true);
 					} else {
 						Session.set("cloudinary_upload.upload_successful",false);
 						Session.set("cloudinary_upload.upload_failed",e);
 						Session.set('loadingUpload', false);
-						humane.log('Un problème est survenu');
+						toastr.error('Un problème est survenu');
 						Session.set('isUpload', true);
 					}
 				});
